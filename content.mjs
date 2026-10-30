@@ -41,5 +41,6 @@ export const news = [
 export const enrolment = [
   {year: '2023–2024', total: 22, girls: 11, boys: 11, levels: 'CP1', levelsEn: 'first primary grade (CP1)', confirmed: true},
   {year: '2024–2025', total: 55, girls: null, boys: null, levels: 'CP1, CP2', levelsEn: 'CP1 and CP2 grades', confirmed: true},
-  {year: '2025–2026', total: 98, girls: 41, boys: 57, levels: 'CP1, CP2, CE1', levelsEn: 'CP1, CP2 and CE1 grades', confirmed: false},
+  // 2025–2026 confirmé par la direction le 30 octobre 2026.
+  {year: '2025–2026', total: 98, girls: 41, boys: 57, levels: 'CP1, CP2, CE1', levelsEn: 'CP1, CP2 and CE1 grades', confirmed: true},
 ];
