@@ -1,15 +1,15 @@
 ﻿Code;Besoin;Base FCFA;Réserve FCFA;Total FCFA;Période
-A;Sanitaires;4100000;410000;4510000;investment
-B;Bâtiment de trois classes;31950000;4792500;36742500;investment
-C;Clôture et cour;8258000;1238700;9496700;investment
-D;Mobilier des trois classes;3630000;363000;3993000;investment
-E;Pédagogie et équipement de gestion;2175000;217500;2392500;investment
-F;Installation de la cantine;2400000;360000;2760000;investment
-G;Jardin, élevage et initiations;1170000;117000;1287000;investment
-H;Solidarité scolaire annuelle;1275000;0;1275000;annual
-I;Fonctionnement annuel de la cantine;5500000;550000;6050000;annual
-J;Autres charges annuelles des projets;1380000;138000;1518000;annual
-K;Activités, suivi et mobilisation annuels;1040000;104000;1144000;annual
+A;Sanitaires;4100000;410000;4510000;Investissement
+B;Bâtiment de trois classes;31950000;4792500;36742500;Investissement
+C;Clôture et cour;8258000;1238700;9496700;Investissement
+D;Mobilier des trois classes;3630000;363000;3993000;Investissement
+E;Pédagogie et équipement de gestion;2175000;217500;2392500;Investissement
+F;Installation de la cantine;2400000;360000;2760000;Investissement
+G;Jardin, élevage et initiations;1170000;117000;1287000;Investissement
+H;Solidarité scolaire annuelle;1275000;0;1275000;Annuel
+I;Fonctionnement annuel de la cantine;5500000;550000;6050000;Annuel
+J;Autres charges annuelles des projets;1380000;138000;1518000;Annuel
+K;Activités, suivi et mobilisation annuels;1040000;104000;1144000;Annuel
 TOTAL;Programme scolaire;62878000;8290700;71168700;Investissements + une année
 
 "Hypothèses au 1er octobre 2026, non des devis. Ressources sécurisées inconnues. Hors annexe du site web et fonctionnement général."
