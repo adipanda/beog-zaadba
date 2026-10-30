@@ -16,6 +16,7 @@ class Beog_CLI {
 	public function publish(): void {
 		if (wp_get_environment_type() === 'production') WP_CLI::error('Refusé en production : la direction valide et publie depuis l’administration.');
 		$ids = get_posts(['post_type' => beog_routed_types(), 'post_status' => 'draft', 'posts_per_page' => -1, 'fields' => 'ids', 'meta_key' => '_beog_route', 'meta_compare' => 'EXISTS']);
+		$ids = array_merge($ids, get_posts(['post_type' => 'beog_album', 'post_status' => 'draft', 'posts_per_page' => -1, 'fields' => 'ids']));
 		foreach ($ids as $id) wp_update_post(['ID' => $id, 'post_status' => 'publish']);
 		WP_CLI::success(count($ids) . ' contenu(s) publié(s).');
 	}

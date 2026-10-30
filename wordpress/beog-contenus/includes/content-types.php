@@ -39,7 +39,12 @@ add_filter('request', function ($q) {
 	$route = trim(sanitize_text_field($q['beog_route']), '/');
 	$preview = isset($_GET['preview']) && current_user_can('edit_posts');
 	$ids = get_posts(['post_type' => beog_routed_types(), 'post_status' => $preview ? ['publish', 'draft', 'pending', 'future', 'private'] : 'publish', 'posts_per_page' => 1, 'fields' => 'ids', 'meta_key' => '_beog_route', 'meta_value' => $route, 'suppress_filters' => false]);
-	return $ids ? ['p' => $ids[0], 'post_type' => 'any', 'post_status' => $preview ? 'any' : 'publish'] : ['p' => 0, 'error' => '404'];
+	if ($ids) return ['p' => $ids[0], 'post_type' => 'any', 'post_status' => $preview ? 'any' : 'publish', 'beog_route' => $route];
+	// Page d'un album : /fr/galerie/<album>/ et /en/galerie/<album>/ affichent le même album.
+	if (preg_match('#^(fr|en)/galerie/([a-z0-9-]+)$#', $route, $m) && ($album = beog_album_by_slug($m[2], $preview))) {
+		return ['p' => $album->ID, 'post_type' => 'beog_album', 'post_status' => $preview ? 'any' : 'publish', 'beog_route' => $route];
+	}
+	return ['p' => 0, 'error' => '404', 'beog_route' => $route];
 });
 add_filter('post_type_link', fn($url, $post) => ($r = get_post_meta($post->ID, '_beog_route', true)) ? home_url('/' . trim($r, '/') . '/') : $url, 10, 2);
 add_filter('page_link', fn($url, $id) => ($r = get_post_meta($id, '_beog_route', true)) ? home_url('/' . trim($r, '/') . '/') : $url, 10, 2);

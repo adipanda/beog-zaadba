@@ -44,3 +44,20 @@ export const enrolment = [
   // 2025–2026 confirmé par la direction le 30 octobre 2026.
   {year: '2025–2026', total: 98, girls: 41, boys: 57, levels: 'CP1, CP2, CE1', levelsEn: 'CP1, CP2 and CE1 grades', confirmed: true},
 ];
+
+// Galerie photos. Règle de sélection : aucun enfant reconnaissable sans
+// l'autorisation écrite de ses parents ou responsables légaux ; pas de nom
+// associé à un visage ; pas d'indication permettant de suivre un enfant.
+// Images recadrées si besoin, métadonnées retirées (assets/galerie).
+export const albums = [
+  {id: 'fin-de-journee-a-l-ecole', date: '2026-10-29',
+   title: ['Une fin de journée à l’école', 'An afternoon at the school'],
+   description: ['Quelques images prises le 29 octobre 2026 : le bâtiment des classes, la cour à l’heure de la sortie et la descente des couleurs. Les vues sont choisies pour qu’aucun enfant ne soit reconnaissable.', 'A few images taken on 29 October 2026: the classroom building, the school yard as lessons end, and the flag being lowered. The views were chosen so that no child can be recognised.'],
+   items: [
+     {file: 'ceremonie-couleurs', w: 960, h: 540, alt: ['Élèves rassemblés en rangs devant le bâtiment des classes, drapeau au mât, vus de loin.', 'Pupils lined up in front of the classroom building with the flag on its pole, seen from a distance.'], caption: ['Les élèves rassemblés devant les classes pour la descente des couleurs.', 'Pupils gathered in front of the classrooms as the flag is lowered.']},
+     {video: 'descente-des-couleurs', poster: 'descente-des-couleurs-640', w: 640, h: 360, seconds: 22, alt: ['Extrait vidéo : le drapeau est descendu devant les élèves alignés.', 'Video clip: the flag is lowered in front of the pupils lined up.'], caption: ['Descente des couleurs en fin de journée. Extrait de 22 secondes, avec le son.', 'Lowering the flag at the end of the day. 22-second clip, with sound.']},
+     {file: 'batiment-des-classes', w: 800, h: 660, alt: ['Façade du bâtiment des classes en briques, portes vertes, vélos garés devant.', 'Front of the brick classroom building with green doors and bicycles parked in front.'], caption: ['Le bâtiment des trois classes à la sortie des cours.', 'The three-classroom building as lessons end.']},
+     {file: 'cour-fin-de-journee', w: 770, h: 810, alt: ['Cour de l’école sous un grand arbre ; un adulte de dos regarde les élèves au loin.', 'School yard under a large tree; an adult seen from behind watches pupils in the distance.'], caption: ['Fin de journée dans la cour, à l’ombre des arbres.', 'End of the day in the school yard, in the shade of the trees.']},
+     {file: 'depart-des-eleves', w: 1080, h: 810, alt: ['Terrain herbeux au premier plan ; au loin, élèves et motos près d’une classe.', 'Grassy ground in the foreground; in the distance, pupils and motorbikes near a classroom.'], caption: ['Les élèves repartent en fin d’après-midi, au bord du terrain de l’école.', 'Pupils head home in the late afternoon, at the edge of the school grounds.']},
+   ]},
+];
