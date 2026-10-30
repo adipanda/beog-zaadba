@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {scene} from './motion-art.mjs';
 import {budget,projects,news,enrolment} from './content.mjs';
-const origin='https://beog-zaadba-komsilga.coolralph.chatgpt.site';
+const origin='https://beog-zaadba.bf';
 const out='dist'; const pages=[];
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const money=n=>new Intl.NumberFormat('fr-FR').format(n);
