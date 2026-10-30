@@ -125,7 +125,7 @@
     "title": "Galerie photos",
     "type": "page",
     "description": "",
-    "body": "<section class=\"page-intro container\"><nav class=\"breadcrumb\" aria-label=\"Fil d’Ariane\"><a href=\"/fr/\">Accueil</a><span aria-hidden=\"true\">/</span><span>Galerie photos</span></nav><p class=\"eyebrow\">Galerie photos</p><h1>La vie de l’école<br>en images.</h1><p class=\"lead\">Des albums publiés par l’équipe de l’école, avec une courte description pour chacun.</p></section><section class=\"container section compact-top\"><div class=\"album-grid\" data-beog-albums><article class=\"album-card\"><a href=\"/fr/galerie/fin-de-journee-a-l-ecole/\"><img src=\"/assets/galerie/ceremonie-couleurs-640.webp\" width=\"640\" height=\"360\" loading=\"lazy\" alt=\"\"><div class=\"album-card-body\"><p class=\"eyebrow\"><time datetime=\"2026-10-29\">29 octobre 2026</time></p><h2>Une fin de journée à l’école</h2><p>4 photos · 1 vidéo</p></div></a></article></div><aside class=\"consent-note\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4c-3-3-7-1-8 1-1-2-5-4-8-1-6 6 8 16 8 16S26 10 20 4Z\"/></svg><p>Nous publions le visage reconnaissable d’un enfant uniquement avec l’accord écrit de ses parents ou responsables légaux, sans jamais l’associer à son nom. Vous figurez sur une image et souhaitez son retrait ? <a href=\"/fr/contact/\">Écrivez-nous</a> : elle sera retirée pendant l’examen de votre demande.</p></aside></section>"
+    "body": "<section class=\"page-intro container\"><nav class=\"breadcrumb\" aria-label=\"Fil d’Ariane\"><a href=\"/fr/\">Accueil</a><span aria-hidden=\"true\">/</span><span>Galerie photos</span></nav><p class=\"eyebrow\">Galerie photos</p><h1>La vie de l’école<br>en images.</h1><p class=\"lead\">Des albums publiés par l’équipe de l’école, avec une courte description pour chacun.</p></section><section class=\"container section compact-top\"><div class=\"album-grid\" data-beog-albums><article class=\"album-card\"><a href=\"/fr/galerie/fin-de-journee-a-l-ecole/\"><img src=\"/assets/galerie/ceremonie-couleurs-640.webp\" width=\"640\" height=\"360\" loading=\"lazy\" alt=\"\"><div class=\"album-card-body\"><p class=\"eyebrow\"><time datetime=\"2026-10-29\">29 octobre 2026</time></p><h2>Une fin de journée à l’école</h2><p>4 photos · 1 vidéo</p></div></a></article><article class=\"album-card\"><a href=\"/fr/galerie/remise-des-kits/\"><img src=\"/assets/galerie/kits-remise-tableau-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"\"><div class=\"album-card-body\"><p class=\"eyebrow\"><time datetime=\"2026-10-14\">14 octobre 2026</time></p><h2>Remise des kits aux élèves</h2><p>7 photos</p></div></a></article></div><aside class=\"consent-note\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4c-3-3-7-1-8 1-1-2-5-4-8-1-6 6 8 16 8 16S26 10 20 4Z\"/></svg><p>Nous publions le visage reconnaissable d’un enfant uniquement avec l’accord écrit de ses parents ou responsables légaux, sans jamais l’associer à son nom. Vous figurez sur une image et souhaitez son retrait ? <a href=\"/fr/contact/\">Écrivez-nous</a> : elle sera retirée pendant l’examen de votre demande.</p></aside></section>"
   },
   {
     "route": "fr/galerie/fin-de-journee-a-l-ecole",
@@ -211,6 +211,119 @@
           "caption": [
             "Les élèves repartent en fin d’après-midi, au bord du terrain de l’école.",
             "Pupils head home in the late afternoon, at the edge of the school grounds."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "route": "fr/galerie/remise-des-kits",
+    "lang": "fr",
+    "title": "Remise des kits aux élèves",
+    "type": "album",
+    "description": "Le 14 octobre 2026, des kits ont été remis aux élèves dans leur classe. Ces photos sont publiées avec les autorisations d’image validées par l’école.",
+    "body": "<section class=\"page-intro container\"><nav class=\"breadcrumb\" aria-label=\"Fil d’Ariane\"><a href=\"/fr/\">Accueil</a><span aria-hidden=\"true\">/</span><span>Galerie photos</span></nav><p class=\"eyebrow\">Galerie photos</p><h1>Remise des kits aux élèves</h1><p class=\"lead\">Le 14 octobre 2026, des kits ont été remis aux élèves dans leur classe. Ces photos sont publiées avec les autorisations d’image validées par l’école.</p></section><section class=\"container section compact-top album-detail\"><p class=\"album-meta\"><time datetime=\"2026-10-14\">14 octobre 2026</time><span>7 photos</span></p><ul class=\"photo-grid\"><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-remise-tableau.webp\" data-lightbox data-caption=\"La remise des kits commence devant le tableau de la classe.\"><img src=\"/assets/galerie/kits-remise-tableau-640.webp\" width=\"640\" height=\"853\" loading=\"eager\" alt=\"Une femme en pagne coloré remet des kits à deux élèves en uniforme, devant le tableau noir.\"></a><figcaption>La remise des kits commence devant le tableau de la classe.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-un-eleve-recoit.webp\" data-lightbox data-caption=\"Un élève reçoit son kit.\"><img src=\"/assets/galerie/kits-un-eleve-recoit-640.webp\" width=\"640\" height=\"853\" loading=\"eager\" alt=\"Un élève en uniforme reçoit un kit des mains d’une femme ; d’autres élèves attendent derrière.\"></a><figcaption>Un élève reçoit son kit.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-chacun-son-tour.webp\" data-lightbox data-caption=\"Chaque élève est appelé à son tour.\"><img src=\"/assets/galerie/kits-chacun-son-tour-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"Un élève tend les mains pour recevoir un kit ; la file des élèves se poursuit le long du tableau.\"></a><figcaption>Chaque élève est appelé à son tour.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-attente-du-tour.webp\" data-lightbox data-caption=\"Les élèves attendent leur tour, kit en main pour les premiers servis.\"><img src=\"/assets/galerie/kits-attente-du-tour-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"Des élèves alignés devant le tableau, certains tenant déjà leur kit.\"></a><figcaption>Les élèves attendent leur tour, kit en main pour les premiers servis.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-echange-avec-les-eleves.webp\" data-lightbox data-caption=\"Un moment d’échange avec les élèves pendant la remise.\"><img src=\"/assets/galerie/kits-echange-avec-les-eleves-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"Une femme parle aux élèves alignés dans la classe ; un adulte se tient à droite.\"></a><figcaption>Un moment d’échange avec les élèves pendant la remise.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-classe-entiere.webp\" data-lightbox data-caption=\"Kits en main, toute la classe pose pour la photo.\"><img src=\"/assets/galerie/kits-classe-entiere-640.webp\" width=\"640\" height=\"288\" loading=\"lazy\" alt=\"Une classe d’élèves lève ses kits au-dessus des têtes, entre les tables-bancs.\"></a><figcaption>Kits en main, toute la classe pose pour la photo.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-classe-montre-ses-kits.webp\" data-lightbox data-caption=\"La classe montre fièrement ses kits.\"><img src=\"/assets/galerie/kits-classe-montre-ses-kits-640.webp\" width=\"640\" height=\"288\" loading=\"lazy\" alt=\"Gros plan sur des élèves brandissant leurs kits dans la classe.\"></a><figcaption>La classe montre fièrement ses kits.</figcaption></figure></li></ul><aside class=\"consent-note\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4c-3-3-7-1-8 1-1-2-5-4-8-1-6 6 8 16 8 16S26 10 20 4Z\"/></svg><p>Nous publions le visage reconnaissable d’un enfant uniquement avec l’accord écrit de ses parents ou responsables légaux, sans jamais l’associer à son nom. Vous figurez sur une image et souhaitez son retrait ? <a href=\"/fr/contact/\">Écrivez-nous</a> : elle sera retirée pendant l’examen de votre demande.</p></aside><a class=\"text-link\" href=\"/fr/galerie/\">Tous les albums<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></section>",
+    "album": {
+      "id": "remise-des-kits",
+      "date": "2026-10-14",
+      "title": [
+        "Remise des kits aux élèves",
+        "Handing out kits to pupils"
+      ],
+      "description": [
+        "Le 14 octobre 2026, des kits ont été remis aux élèves dans leur classe. Ces photos sont publiées avec les autorisations d’image validées par l’école.",
+        "On 14 October 2026, kits were handed out to pupils in their classroom. These photos are published with image permissions approved by the school."
+      ],
+      "items": [
+        {
+          "file": "kits-remise-tableau",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Une femme en pagne coloré remet des kits à deux élèves en uniforme, devant le tableau noir.",
+            "A woman in a colourful wrapper hands kits to two pupils in uniform in front of the blackboard."
+          ],
+          "caption": [
+            "La remise des kits commence devant le tableau de la classe.",
+            "The kit handover begins in front of the classroom blackboard."
+          ]
+        },
+        {
+          "file": "kits-un-eleve-recoit",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Un élève en uniforme reçoit un kit des mains d’une femme ; d’autres élèves attendent derrière.",
+            "A pupil in uniform receives a kit from a woman; other pupils wait behind."
+          ],
+          "caption": [
+            "Un élève reçoit son kit.",
+            "A pupil receives a kit."
+          ]
+        },
+        {
+          "file": "kits-chacun-son-tour",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Un élève tend les mains pour recevoir un kit ; la file des élèves se poursuit le long du tableau.",
+            "A pupil holds out his hands for a kit; the line of pupils continues along the blackboard."
+          ],
+          "caption": [
+            "Chaque élève est appelé à son tour.",
+            "Each pupil is called up in turn."
+          ]
+        },
+        {
+          "file": "kits-attente-du-tour",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Des élèves alignés devant le tableau, certains tenant déjà leur kit.",
+            "Pupils lined up in front of the blackboard, some already holding their kit."
+          ],
+          "caption": [
+            "Les élèves attendent leur tour, kit en main pour les premiers servis.",
+            "Pupils wait their turn; the first ones already hold their kits."
+          ]
+        },
+        {
+          "file": "kits-echange-avec-les-eleves",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Une femme parle aux élèves alignés dans la classe ; un adulte se tient à droite.",
+            "A woman speaks to the pupils lined up in the classroom; an adult stands on the right."
+          ],
+          "caption": [
+            "Un moment d’échange avec les élèves pendant la remise.",
+            "A moment with the pupils during the handover."
+          ]
+        },
+        {
+          "file": "kits-classe-entiere",
+          "w": 1040,
+          "h": 468,
+          "alt": [
+            "Une classe d’élèves lève ses kits au-dessus des têtes, entre les tables-bancs.",
+            "A class of pupils raises their kits overhead between the desks."
+          ],
+          "caption": [
+            "Kits en main, toute la classe pose pour la photo.",
+            "Kits in hand, the whole class poses for the photo."
+          ]
+        },
+        {
+          "file": "kits-classe-montre-ses-kits",
+          "w": 1040,
+          "h": 468,
+          "alt": [
+            "Gros plan sur des élèves brandissant leurs kits dans la classe.",
+            "Close view of pupils holding up their kits in the classroom."
+          ],
+          "caption": [
+            "La classe montre fièrement ses kits.",
+            "The class proudly shows its kits."
           ]
         }
       ]
@@ -398,7 +511,7 @@
     "title": "Photo gallery",
     "type": "page",
     "description": "",
-    "body": "<section class=\"page-intro container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/en/\">Home</a><span aria-hidden=\"true\">/</span><span>Photo gallery</span></nav><p class=\"eyebrow\">Photo gallery</p><h1>School life<br>in pictures.</h1><p class=\"lead\">Albums published by the school team, each with a short description.</p></section><section class=\"container section compact-top\"><div class=\"album-grid\" data-beog-albums><article class=\"album-card\"><a href=\"/en/galerie/fin-de-journee-a-l-ecole/\"><img src=\"/assets/galerie/ceremonie-couleurs-640.webp\" width=\"640\" height=\"360\" loading=\"lazy\" alt=\"\"><div class=\"album-card-body\"><p class=\"eyebrow\"><time datetime=\"2026-10-29\">29 October 2026</time></p><h2>An afternoon at the school</h2><p>4 photos · 1 video</p></div></a></article></div><aside class=\"consent-note\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4c-3-3-7-1-8 1-1-2-5-4-8-1-6 6 8 16 8 16S26 10 20 4Z\"/></svg><p>We only publish a child’s recognisable face with written consent from their parents or guardians, and never next to their name. If you appear in an image and want it removed, <a href=\"/en/contact/\">contact us</a>: it will be taken down while we review your request.</p></aside></section>"
+    "body": "<section class=\"page-intro container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/en/\">Home</a><span aria-hidden=\"true\">/</span><span>Photo gallery</span></nav><p class=\"eyebrow\">Photo gallery</p><h1>School life<br>in pictures.</h1><p class=\"lead\">Albums published by the school team, each with a short description.</p></section><section class=\"container section compact-top\"><div class=\"album-grid\" data-beog-albums><article class=\"album-card\"><a href=\"/en/galerie/fin-de-journee-a-l-ecole/\"><img src=\"/assets/galerie/ceremonie-couleurs-640.webp\" width=\"640\" height=\"360\" loading=\"lazy\" alt=\"\"><div class=\"album-card-body\"><p class=\"eyebrow\"><time datetime=\"2026-10-29\">29 October 2026</time></p><h2>An afternoon at the school</h2><p>4 photos · 1 video</p></div></a></article><article class=\"album-card\"><a href=\"/en/galerie/remise-des-kits/\"><img src=\"/assets/galerie/kits-remise-tableau-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"\"><div class=\"album-card-body\"><p class=\"eyebrow\"><time datetime=\"2026-10-14\">14 October 2026</time></p><h2>Handing out kits to pupils</h2><p>7 photos</p></div></a></article></div><aside class=\"consent-note\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4c-3-3-7-1-8 1-1-2-5-4-8-1-6 6 8 16 8 16S26 10 20 4Z\"/></svg><p>We only publish a child’s recognisable face with written consent from their parents or guardians, and never next to their name. If you appear in an image and want it removed, <a href=\"/en/contact/\">contact us</a>: it will be taken down while we review your request.</p></aside></section>"
   },
   {
     "route": "en/galerie/fin-de-journee-a-l-ecole",
@@ -484,6 +597,119 @@
           "caption": [
             "Les élèves repartent en fin d’après-midi, au bord du terrain de l’école.",
             "Pupils head home in the late afternoon, at the edge of the school grounds."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "route": "en/galerie/remise-des-kits",
+    "lang": "en",
+    "title": "Handing out kits to pupils",
+    "type": "album",
+    "description": "On 14 October 2026, kits were handed out to pupils in their classroom. These photos are published with image permissions approved by the school.",
+    "body": "<section class=\"page-intro container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/en/\">Home</a><span aria-hidden=\"true\">/</span><span>Photo gallery</span></nav><p class=\"eyebrow\">Photo gallery</p><h1>Handing out kits to pupils</h1><p class=\"lead\">On 14 October 2026, kits were handed out to pupils in their classroom. These photos are published with image permissions approved by the school.</p></section><section class=\"container section compact-top album-detail\"><p class=\"album-meta\"><time datetime=\"2026-10-14\">14 October 2026</time><span>7 photos</span></p><ul class=\"photo-grid\"><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-remise-tableau.webp\" data-lightbox data-caption=\"The kit handover begins in front of the classroom blackboard.\"><img src=\"/assets/galerie/kits-remise-tableau-640.webp\" width=\"640\" height=\"853\" loading=\"eager\" alt=\"A woman in a colourful wrapper hands kits to two pupils in uniform in front of the blackboard.\"></a><figcaption>The kit handover begins in front of the classroom blackboard.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-un-eleve-recoit.webp\" data-lightbox data-caption=\"A pupil receives a kit.\"><img src=\"/assets/galerie/kits-un-eleve-recoit-640.webp\" width=\"640\" height=\"853\" loading=\"eager\" alt=\"A pupil in uniform receives a kit from a woman; other pupils wait behind.\"></a><figcaption>A pupil receives a kit.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-chacun-son-tour.webp\" data-lightbox data-caption=\"Each pupil is called up in turn.\"><img src=\"/assets/galerie/kits-chacun-son-tour-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"A pupil holds out his hands for a kit; the line of pupils continues along the blackboard.\"></a><figcaption>Each pupil is called up in turn.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-attente-du-tour.webp\" data-lightbox data-caption=\"Pupils wait their turn; the first ones already hold their kits.\"><img src=\"/assets/galerie/kits-attente-du-tour-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"Pupils lined up in front of the blackboard, some already holding their kit.\"></a><figcaption>Pupils wait their turn; the first ones already hold their kits.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-echange-avec-les-eleves.webp\" data-lightbox data-caption=\"A moment with the pupils during the handover.\"><img src=\"/assets/galerie/kits-echange-avec-les-eleves-640.webp\" width=\"640\" height=\"853\" loading=\"lazy\" alt=\"A woman speaks to the pupils lined up in the classroom; an adult stands on the right.\"></a><figcaption>A moment with the pupils during the handover.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-classe-entiere.webp\" data-lightbox data-caption=\"Kits in hand, the whole class poses for the photo.\"><img src=\"/assets/galerie/kits-classe-entiere-640.webp\" width=\"640\" height=\"288\" loading=\"lazy\" alt=\"A class of pupils raises their kits overhead between the desks.\"></a><figcaption>Kits in hand, the whole class poses for the photo.</figcaption></figure></li><li class=\"photo-item\"><figure><a href=\"/assets/galerie/kits-classe-montre-ses-kits.webp\" data-lightbox data-caption=\"The class proudly shows its kits.\"><img src=\"/assets/galerie/kits-classe-montre-ses-kits-640.webp\" width=\"640\" height=\"288\" loading=\"lazy\" alt=\"Close view of pupils holding up their kits in the classroom.\"></a><figcaption>The class proudly shows its kits.</figcaption></figure></li></ul><aside class=\"consent-note\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4c-3-3-7-1-8 1-1-2-5-4-8-1-6 6 8 16 8 16S26 10 20 4Z\"/></svg><p>We only publish a child’s recognisable face with written consent from their parents or guardians, and never next to their name. If you appear in an image and want it removed, <a href=\"/en/contact/\">contact us</a>: it will be taken down while we review your request.</p></aside><a class=\"text-link\" href=\"/en/galerie/\">All albums<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></section>",
+    "album": {
+      "id": "remise-des-kits",
+      "date": "2026-10-14",
+      "title": [
+        "Remise des kits aux élèves",
+        "Handing out kits to pupils"
+      ],
+      "description": [
+        "Le 14 octobre 2026, des kits ont été remis aux élèves dans leur classe. Ces photos sont publiées avec les autorisations d’image validées par l’école.",
+        "On 14 October 2026, kits were handed out to pupils in their classroom. These photos are published with image permissions approved by the school."
+      ],
+      "items": [
+        {
+          "file": "kits-remise-tableau",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Une femme en pagne coloré remet des kits à deux élèves en uniforme, devant le tableau noir.",
+            "A woman in a colourful wrapper hands kits to two pupils in uniform in front of the blackboard."
+          ],
+          "caption": [
+            "La remise des kits commence devant le tableau de la classe.",
+            "The kit handover begins in front of the classroom blackboard."
+          ]
+        },
+        {
+          "file": "kits-un-eleve-recoit",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Un élève en uniforme reçoit un kit des mains d’une femme ; d’autres élèves attendent derrière.",
+            "A pupil in uniform receives a kit from a woman; other pupils wait behind."
+          ],
+          "caption": [
+            "Un élève reçoit son kit.",
+            "A pupil receives a kit."
+          ]
+        },
+        {
+          "file": "kits-chacun-son-tour",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Un élève tend les mains pour recevoir un kit ; la file des élèves se poursuit le long du tableau.",
+            "A pupil holds out his hands for a kit; the line of pupils continues along the blackboard."
+          ],
+          "caption": [
+            "Chaque élève est appelé à son tour.",
+            "Each pupil is called up in turn."
+          ]
+        },
+        {
+          "file": "kits-attente-du-tour",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Des élèves alignés devant le tableau, certains tenant déjà leur kit.",
+            "Pupils lined up in front of the blackboard, some already holding their kit."
+          ],
+          "caption": [
+            "Les élèves attendent leur tour, kit en main pour les premiers servis.",
+            "Pupils wait their turn; the first ones already hold their kits."
+          ]
+        },
+        {
+          "file": "kits-echange-avec-les-eleves",
+          "w": 765,
+          "h": 1020,
+          "alt": [
+            "Une femme parle aux élèves alignés dans la classe ; un adulte se tient à droite.",
+            "A woman speaks to the pupils lined up in the classroom; an adult stands on the right."
+          ],
+          "caption": [
+            "Un moment d’échange avec les élèves pendant la remise.",
+            "A moment with the pupils during the handover."
+          ]
+        },
+        {
+          "file": "kits-classe-entiere",
+          "w": 1040,
+          "h": 468,
+          "alt": [
+            "Une classe d’élèves lève ses kits au-dessus des têtes, entre les tables-bancs.",
+            "A class of pupils raises their kits overhead between the desks."
+          ],
+          "caption": [
+            "Kits en main, toute la classe pose pour la photo.",
+            "Kits in hand, the whole class poses for the photo."
+          ]
+        },
+        {
+          "file": "kits-classe-montre-ses-kits",
+          "w": 1040,
+          "h": 468,
+          "alt": [
+            "Gros plan sur des élèves brandissant leurs kits dans la classe.",
+            "Close view of pupils holding up their kits in the classroom."
+          ],
+          "caption": [
+            "La classe montre fièrement ses kits.",
+            "The class proudly shows its kits."
           ]
         }
       ]
