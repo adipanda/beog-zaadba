@@ -33,15 +33,16 @@ Le dossier `wordpress` contient le thème `beog-zaadba` et l’extension `beog-c
 - *Archivage* : action « Archiver » dans les listes ; un contenu archivé quitte le site sans être supprimé.
 - *Suivi des projets* : une actualité ou un rapport rattaché à un projet apparaît dans « Suivi du projet » de la fiche, dans sa langue.
 - *Demandes* : les formulaires de contact et de partenariat enregistrent chaque demande en privé avant d’envoyer la notification. Contrôles : jeton anti-falsification, champ piège, 5 demandes au plus par connexion sur 10 minutes, validation serveur. Si le courriel échoue, la demande reste enregistrée et une alerte s’affiche dans l’administration. Suivi par état, responsable et prochaine action ; export CSV protégé contre les formules.
+- *Galerie photos* : albums avec titre, date, courte description (FR, EN facultatif) et lot de photos ou de vidéos MP4, dans l’ordre choisi par glisser-déposer. Tous les rôles créent des albums et les soumettent ; la direction les publie. Un avertissement sur les autorisations d’image s’affiche sur les écrans d’album et de médiathèque, et chaque enregistrement exige de cocher la confirmation : sans elle, l’album reste en brouillon. Les légendes et textes alternatifs anglais se saisissent dans la médiathèque. Pages publiques : /fr/galerie/, /en/galerie/ et /fr|en/galerie/<album>/, avec visionneuse au clavier.
 - *Pièces privées* : devis, conventions et justificatifs rangés hors de la médiathèque, sous nom aléatoire, téléchargeables seulement après vérification des droits ; PDF, images, Word, Excel, CSV, 10 Mo au plus.
 
 **Rôles**
 | Rôle | Peut |
 |---|---|
-| Rédaction Beog-Zaadba | Préparer et modifier des brouillons, les soumettre à relecture. Ne publie pas, ne change ni l’état ni les chiffres. |
-| Direction Beog-Zaadba | Valider et publier, fixer état et chiffres des projets, traiter et exporter les demandes, gérer les pièces privées. |
-| Finance Beog-Zaadba | Consulter et télécharger les pièces privées ; exports financiers (lot B). |
-| Partenariats Beog-Zaadba | Traiter et exporter les demandes de contact et de partenariat. |
+| Rédaction Beog-Zaadba | Préparer et modifier des brouillons, les soumettre à relecture ; créer des albums photos. Ne publie pas, ne change ni l’état ni les chiffres. |
+| Direction Beog-Zaadba | Valider et publier (y compris les albums), fixer état et chiffres des projets, traiter et exporter les demandes, gérer les pièces privées. |
+| Finance Beog-Zaadba | Consulter et télécharger les pièces privées ; exports financiers (lot B) ; créer des albums photos. |
+| Partenariats Beog-Zaadba | Traiter et exporter les demandes de contact et de partenariat ; créer des albums photos. |
 | Administrateur | Maintenance technique ; toutes les capacités. |
 
 **Commandes WP-CLI** : `wp beog import`, `wp beog publish` (refusée en production), `wp beog export-inquiries fichier.csv`.
@@ -59,6 +60,7 @@ Le dossier `wordpress` contient le thème `beog-zaadba` et l’extension `beog-c
 - Vidéos : 7 fichiers inspectés. Clip utilisé : WhatsApp Video 2026-10-14 at 07.24.00.mp4, 00:08–00:20, adulte seul, sans attribution d’identité/fonction.
 - Vidéo livrée : 12 secondes, 404 × 720, H.264 + AAC, 2 721 536 octets, piste sonore d’origine rétablie ; image extraite à 00:12, 478 × 850, 109 988 octets.
 - Les illustrations des projets sont des pictogrammes décoratifs, pas des preuves de travaux réalisés.
+- Galerie (30 octobre 2026) : 37 photos et 9 vidéos examinées. Retenus : 4 photos et un extrait vidéo de 22 secondes, tous du 29 octobre 2026 (bâtiment, cour, descente des couleurs), où aucun enfant n’est reconnaissable ; deux photos recadrées pour écarter des visages proches. Images converties en WebP, métadonnées retirées. Second album « Remise des kits » (14 octobre 2026, 7 photos) : enfants reconnaissables, publié après validation des autorisations d’image par l’école le 30 octobre 2026. Non publiés : les autres photos de classe (autorisation à obtenir) et les quasi-doublons de la remise, les deux témoignages filmés (accord des personnes à obtenir), deux documents administratifs et un doublon.
 - Effectifs : 98 élèves en 2025–2026 (41 filles, 57 garçons), confirmés par la direction le 30 octobre 2026, affichés avec leur année. Effectif 2026–2027 non publié.
 - Tarif ancien, contact, compte de paiement, entité légale et devis non confirmés : aucun renseignement inventé.
 - Les estimations ne sont ni des objectifs de collecte, ni des devis TTC. Les ressources sécurisées sont inconnues, pas nulles.

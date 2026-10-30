@@ -44,3 +44,33 @@ export const enrolment = [
   // 2025–2026 confirmé par la direction le 30 octobre 2026.
   {year: '2025–2026', total: 98, girls: 41, boys: 57, levels: 'CP1, CP2, CE1', levelsEn: 'CP1, CP2 and CE1 grades', confirmed: true},
 ];
+
+// Galerie photos. Règle de sélection : aucun enfant reconnaissable sans
+// l'autorisation écrite de ses parents ou responsables légaux (album « Remise
+// des kits » : autorisations validées par l'école le 30 octobre 2026) ; pas de nom
+// associé à un visage ; pas d'indication permettant de suivre un enfant.
+// Images recadrées si besoin, métadonnées retirées (assets/galerie).
+export const albums = [
+  {id: 'fin-de-journee-a-l-ecole', date: '2026-10-29',
+   title: ['Une fin de journée à l’école', 'An afternoon at the school'],
+   description: ['Quelques images prises le 29 octobre 2026 : le bâtiment des classes, la cour à l’heure de la sortie et la descente des couleurs. Les vues sont choisies pour qu’aucun enfant ne soit reconnaissable.', 'A few images taken on 29 October 2026: the classroom building, the school yard as lessons end, and the flag being lowered. The views were chosen so that no child can be recognised.'],
+   items: [
+     {file: 'ceremonie-couleurs', w: 960, h: 540, alt: ['Élèves rassemblés en rangs devant le bâtiment des classes, drapeau au mât, vus de loin.', 'Pupils lined up in front of the classroom building with the flag on its pole, seen from a distance.'], caption: ['Les élèves rassemblés devant les classes pour la descente des couleurs.', 'Pupils gathered in front of the classrooms as the flag is lowered.']},
+     {video: 'descente-des-couleurs', poster: 'descente-des-couleurs-640', w: 640, h: 360, seconds: 22, alt: ['Extrait vidéo : le drapeau est descendu devant les élèves alignés.', 'Video clip: the flag is lowered in front of the pupils lined up.'], caption: ['Descente des couleurs en fin de journée. Extrait de 22 secondes, avec le son.', 'Lowering the flag at the end of the day. 22-second clip, with sound.']},
+     {file: 'batiment-des-classes', w: 800, h: 660, alt: ['Façade du bâtiment des classes en briques, portes vertes, vélos garés devant.', 'Front of the brick classroom building with green doors and bicycles parked in front.'], caption: ['Le bâtiment des trois classes à la sortie des cours.', 'The three-classroom building as lessons end.']},
+     {file: 'cour-fin-de-journee', w: 770, h: 810, alt: ['Cour de l’école sous un grand arbre ; un adulte de dos regarde les élèves au loin.', 'School yard under a large tree; an adult seen from behind watches pupils in the distance.'], caption: ['Fin de journée dans la cour, à l’ombre des arbres.', 'End of the day in the school yard, in the shade of the trees.']},
+     {file: 'depart-des-eleves', w: 1080, h: 810, alt: ['Terrain herbeux au premier plan ; au loin, élèves et motos près d’une classe.', 'Grassy ground in the foreground; in the distance, pupils and motorbikes near a classroom.'], caption: ['Les élèves repartent en fin d’après-midi, au bord du terrain de l’école.', 'Pupils head home in the late afternoon, at the edge of the school grounds.']},
+   ]},
+  {id: 'remise-des-kits', date: '2026-10-14',
+   title: ['Remise des kits aux élèves', 'Handing out kits to pupils'],
+   description: ['Le 14 octobre 2026, des kits ont été remis aux élèves dans leur classe. Ces photos sont publiées avec les autorisations d’image validées par l’école.', 'On 14 October 2026, kits were handed out to pupils in their classroom. These photos are published with image permissions approved by the school.'],
+   items: [
+     {file: 'kits-remise-tableau', w: 765, h: 1020, alt: ['Une femme en pagne coloré remet des kits à deux élèves en uniforme, devant le tableau noir.', 'A woman in a colourful wrapper hands kits to two pupils in uniform in front of the blackboard.'], caption: ['La remise des kits commence devant le tableau de la classe.', 'The kit handover begins in front of the classroom blackboard.']},
+     {file: 'kits-un-eleve-recoit', w: 765, h: 1020, alt: ['Un élève en uniforme reçoit un kit des mains d’une femme ; d’autres élèves attendent derrière.', 'A pupil in uniform receives a kit from a woman; other pupils wait behind.'], caption: ['Un élève reçoit son kit.', 'A pupil receives a kit.']},
+     {file: 'kits-chacun-son-tour', w: 765, h: 1020, alt: ['Un élève tend les mains pour recevoir un kit ; la file des élèves se poursuit le long du tableau.', 'A pupil holds out his hands for a kit; the line of pupils continues along the blackboard.'], caption: ['Chaque élève est appelé à son tour.', 'Each pupil is called up in turn.']},
+     {file: 'kits-attente-du-tour', w: 765, h: 1020, alt: ['Des élèves alignés devant le tableau, certains tenant déjà leur kit.', 'Pupils lined up in front of the blackboard, some already holding their kit.'], caption: ['Les élèves attendent leur tour, kit en main pour les premiers servis.', 'Pupils wait their turn; the first ones already hold their kits.']},
+     {file: 'kits-echange-avec-les-eleves', w: 765, h: 1020, alt: ['Une femme parle aux élèves alignés dans la classe ; un adulte se tient à droite.', 'A woman speaks to the pupils lined up in the classroom; an adult stands on the right.'], caption: ['Un moment d’échange avec les élèves pendant la remise.', 'A moment with the pupils during the handover.']},
+     {file: 'kits-classe-entiere', w: 1040, h: 468, alt: ['Une classe d’élèves lève ses kits au-dessus des têtes, entre les tables-bancs.', 'A class of pupils raises their kits overhead between the desks.'], caption: ['Kits en main, toute la classe pose pour la photo.', 'Kits in hand, the whole class poses for the photo.']},
+     {file: 'kits-classe-montre-ses-kits', w: 1040, h: 468, alt: ['Gros plan sur des élèves brandissant leurs kits dans la classe.', 'Close view of pupils holding up their kits in the classroom.'], caption: ['La classe montre fièrement ses kits.', 'The class proudly shows its kits.']},
+   ]},
+];

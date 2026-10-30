@@ -242,6 +242,7 @@ function beog_updates_section(string $key, string $lang, string $fallback): stri
 function beog_render_dynamic(string $html, string $lang): string {
 	$html = preg_replace_callback('#<span class="status" data-beog-status="([a-z0-9-]+)"[^>]*><span></span>[^<]*</span>#', fn($m) => beog_status_chip($m[1], $lang), $html);
 	$html = preg_replace_callback('#<aside class="project-aside" data-beog-facts="([a-z0-9-]+)">.*?</aside>#s', fn($m) => beog_facts_aside($m[1], $lang) ?: $m[0], $html);
+	if (function_exists('beog_album_cards')) $html = preg_replace_callback('#<div class="album-grid" data-beog-albums>.*?(?=<aside class="consent-note">)#s', fn() => beog_album_cards($lang), $html);
 	$html = preg_replace_callback('#<section class="section container" data-beog-updates="([a-z0-9-]+)">.*?</section>#s', fn($m) => beog_updates_section($m[1], $lang, $m[0]), $html);
 	return $html;
 }

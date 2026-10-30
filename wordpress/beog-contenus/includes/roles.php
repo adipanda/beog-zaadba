@@ -39,8 +39,11 @@ function beog_install_roles(): void {
 	$direction = $editor ? $editor->capabilities : $redaction;
 	foreach (array_merge(['beog_edit_project_facts', 'beog_manage_inquiries', 'beog_export_inquiries', 'beog_view_private_docs', 'beog_manage_private_docs'], beog_inquiry_caps(), beog_doc_caps()) as $cap) $direction[$cap] = true;
 
-	$finance = ['read' => true, 'beog_view_private_docs' => true, 'beog_export_finance' => true];
-	$partenariats = ['read' => true, 'beog_manage_inquiries' => true, 'beog_export_inquiries' => true];
+	// Galerie : tous les rôles créent et soumettent des albums ; la direction publie.
+	$redaction = array_merge($redaction, beog_album_contributor_caps());
+	foreach (beog_album_caps() as $cap) $direction[$cap] = true;
+	$finance = array_merge(beog_album_contributor_caps(), ['read' => true, 'beog_view_private_docs' => true, 'beog_export_finance' => true]);
+	$partenariats = array_merge(beog_album_contributor_caps(), ['read' => true, 'beog_manage_inquiries' => true, 'beog_export_inquiries' => true]);
 	foreach (beog_inquiry_caps() as $cap) $partenariats[$cap] = true;
 
 	$roles = [
@@ -55,7 +58,7 @@ function beog_install_roles(): void {
 	}
 
 	if ($admin = get_role('administrator')) {
-		foreach (array_merge(beog_custom_caps(), beog_inquiry_caps(), beog_doc_caps()) as $cap) $admin->add_cap($cap);
+		foreach (array_merge(beog_custom_caps(), beog_inquiry_caps(), beog_doc_caps(), beog_album_caps()) as $cap) $admin->add_cap($cap);
 	}
 	update_option('beog_roles_version', BEOG_VERSION, false);
 }
