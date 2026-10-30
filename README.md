@@ -15,16 +15,40 @@ Le site publié est statique, rapide et portable. Il ne constitue pas la récept
 - Les formulaires préparent uniquement du texte local : ils ne transmettent ni ne stockent les données. Aucun service de courrier n’est configuré.
 - La vidéo est chargée après un clic, avec le son d’origine et des commandes de volume. Elle ne démarre pas à l’ouverture de la page.
 
-## Reprise WordPress — socle préparé, non testé en PHP
-Le répertoire `wordpress` contient un thème et une extension de contenus séparée. Cette livraison inclut un import initial et un rendu éditable. Elle n’inclut pas encore la recette fonctionnelle d’un serveur WordPress, les formulaires serveurs, les rôles spécifiques finance, les campagnes, les sauvegardes ni les paiements.
+## WordPress — socle du lot A (extension 2.0)
+Le dossier `wordpress` contient le thème `beog-zaadba` et l’extension `beog-contenus`, séparée du thème. `node build.mjs` régénère les copies du thème et le fichier d’import à partir du site statique.
 
-1. Sur un environnement WordPress de test compatible PHP 8.1 ou plus récent, installer le dossier `wordpress/beog-zaadba` dans les thèmes et `wordpress/beog-contenus` dans les extensions.
-2. Activer l’extension et le thème. Dans Outils > Import Beog-Zaadba, importer les contenus. Ils sont créés en brouillon et les contenus déjà importés ne sont pas écrasés.
-3. Examiner les pages et projets. Ils sont éditables dans un bloc HTML dans l’éditeur WordPress ; cet import est destiné à la reprise par le développeur avant formation de l’école.
-4. Vérifier les routes /fr/ et /en/, les langues et les liens. Publier après validation. Choisir la page française d’accueil dans Réglages > Lecture. Les noms de fichier et routes restent sans données personnelles.
-5. Le thème maintient volontairement noindex. Le retirer seulement après validation institutionnelle et mise en conformité de la version opérationnelle.
-6. Configurer les formulaires serveurs avec validation, stockage privé, antispam et notification. Le JavaScript prévoit un point d’intégration BEOG_FORM mais aucun endpoint n’est activé ou livré comme opérationnel.
-7. Tester utilisateurs, révisions, publications, traductions, données privées, sauvegarde/restauration, mobile et formulaires avant réception.
+**Installation (PHP 8.1 ou plus récent, WordPress 6.6 ou plus récent)**
+1. Copier `wordpress/beog-zaadba` dans `wp-content/themes` et `wordpress/beog-contenus` dans `wp-content/plugins`, puis activer l’extension et le thème.
+2. Réglages > Permaliens : choisir « Titre de la publication » (adresses /fr/… et /en/…).
+3. Outils > Import Beog-Zaadba (ou `wp beog import`) : les 34 contenus FR/EN sont créés en brouillon. Les fiches projet reçoivent leur budget daté et l’état « En préparation ».
+4. Relire, puis publier depuis l’administration. Réglages > Lecture : page d’accueil statique = l’accueil français.
+5. Réglages > Général : renseigner « Courriel des demandes Beog-Zaadba ». Vérifier que le serveur envoie des courriels (extension SMTP si besoin).
+6. Pièces privées : définir `BEOG_PRIVATE_DIR` dans `wp-config.php` vers un dossier hors de la racine web. À défaut, `wp-content/beog-private/` est protégé par `.htaccess` (Apache) ; sous Nginx, ajouter `location ^~ /wp-content/beog-private/ { deny all; }`.
+7. Le thème garde `noindex` jusqu’à la validation de la version en ligne.
+
+**Ce que gère l’école**
+- *Fiches projet* : état public parmi les six états du cahier (En préparation, Ouvert au soutien, Financement atteint, En réalisation, Terminé, Suspendu), chacun avec son message ; budget daté et historisé ; ressources sécurisées (vide = non renseigné, jamais zéro) ; solde calculé ; jauge affichée seulement si l’objectif et sa règle sont validés. Les chiffres et l’état saisis sur une langue sont recopiés sur l’autre ; les textes (responsable, lieu, calendrier, bénéficiaires) restent propres à chaque langue. Les pastilles d’état de l’accueil et de la liste des projets suivent automatiquement.
+- *Langues* : chaque contenu porte son adresse fr/… ou en/… ; un bouton crée la version de l’autre langue en brouillon.
+- *Archivage* : action « Archiver » dans les listes ; un contenu archivé quitte le site sans être supprimé.
+- *Suivi des projets* : une actualité ou un rapport rattaché à un projet apparaît dans « Suivi du projet » de la fiche, dans sa langue.
+- *Demandes* : les formulaires de contact et de partenariat enregistrent chaque demande en privé avant d’envoyer la notification. Contrôles : jeton anti-falsification, champ piège, 5 demandes au plus par connexion sur 10 minutes, validation serveur. Si le courriel échoue, la demande reste enregistrée et une alerte s’affiche dans l’administration. Suivi par état, responsable et prochaine action ; export CSV protégé contre les formules.
+- *Pièces privées* : devis, conventions et justificatifs rangés hors de la médiathèque, sous nom aléatoire, téléchargeables seulement après vérification des droits ; PDF, images, Word, Excel, CSV, 10 Mo au plus.
+
+**Rôles**
+| Rôle | Peut |
+|---|---|
+| Rédaction Beog-Zaadba | Préparer et modifier des brouillons, les soumettre à relecture. Ne publie pas, ne change ni l’état ni les chiffres. |
+| Direction Beog-Zaadba | Valider et publier, fixer état et chiffres des projets, traiter et exporter les demandes, gérer les pièces privées. |
+| Finance Beog-Zaadba | Consulter et télécharger les pièces privées ; exports financiers (lot B). |
+| Partenariats Beog-Zaadba | Traiter et exporter les demandes de contact et de partenariat. |
+| Administrateur | Maintenance technique ; toutes les capacités. |
+
+**Commandes WP-CLI** : `wp beog import`, `wp beog publish` (refusée en production), `wp beog export-inquiries fichier.csv`.
+
+**Testé** sur WordPress 7.1.4, PHP 8.3 : import et publication, routes FR/EN et 404, aperçu des brouillons réservé aux éditeurs, droits de chaque rôle (écrans et téléchargements), saisie des chiffres limitée à la direction, recopie FR→EN et historique du budget, jauge, suivi des projets, traduction, archivage, formulaire en navigateur (FR/EN), refus pour jeton invalide, champ piège, limitation, champs invalides, alerte de courriel en panne, export CSV neutralisant une formule, refus d’un fichier `.php`.
+
+**Hors de ce socle** : paiements (lot B), dont la double validation d’un changement de bénéficiaire ; authentification renforcée (à activer avec une extension à deux facteurs, par exemple « Two Factor ») ; sauvegardes quotidiennes et restauration (hébergement) ; relecture des phrases d’accueil qui mentionnent l’état d’une collecte lorsqu’un projet change d’état.
 
 ## Provenance et décisions éditoriales
 - Cahier des charges du site web — Beog-Zaadba, version 1 du 20 octobre 2026.
@@ -35,7 +59,7 @@ Le répertoire `wordpress` contient un thème et une extension de contenus sépa
 - Vidéos : 7 fichiers inspectés. Clip utilisé : WhatsApp Video 2026-10-14 at 07.24.00.mp4, 00:08–00:20, adulte seul, sans attribution d’identité/fonction.
 - Vidéo livrée : 12 secondes, 404 × 720, H.264 + AAC, 2 721 536 octets, piste sonore d’origine rétablie ; image extraite à 00:12, 478 × 850, 109 988 octets.
 - Les illustrations des projets sont des pictogrammes décoratifs, pas des preuves de travaux réalisés.
-- L’effectif 98 pour 2025–2026 est signalé « à confirmer » dans le cahier : pas affiché comme indicateur confirmé. Effectif 2026–2027 non publié.
+- Effectifs : 98 élèves en 2025–2026 (41 filles, 57 garçons), confirmés par la direction le 30 octobre 2026, affichés avec leur année. Effectif 2026–2027 non publié.
 - Tarif ancien, contact, compte de paiement, entité légale et devis non confirmés : aucun renseignement inventé.
 - Les estimations ne sont ni des objectifs de collecte, ni des devis TTC. Les ressources sécurisées sont inconnues, pas nulles.
 - Aucun traceur ajouté ; aucune police externe ; aucun identifiant secret dans le dépôt.
