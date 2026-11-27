@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Beog-Zaadba — Contenus, projets et demandes
  * Description: Types de contenus FR/EN, fiches projet structurées, galerie photos, demandes de contact et de partenariat, rôles et pièces privées. Aucun paiement.
- * Version: 2.1.0
+ * Version: 2.2.0
  * Requires PHP: 8.1
  * Requires at least: 6.6
  * License: GPL-2.0-or-later
@@ -10,7 +10,7 @@
  */
 if (!defined('ABSPATH')) exit;
 
-define('BEOG_VERSION', '2.1.0');
+define('BEOG_VERSION', '2.2.0');
 define('BEOG_DIR', __DIR__);
 
 require_once __DIR__ . '/includes/helpers.php';

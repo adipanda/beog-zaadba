@@ -22,12 +22,13 @@ function beog_import_pages(): array {
 		$id = wp_insert_post(wp_slash([
 			'post_type' => $type, 'post_status' => 'draft', 'post_title' => sanitize_text_field($p['title']),
 			'post_name' => sanitize_title(str_replace('/', '-', $route)),
-			'post_content' => '<!-- wp:html -->' . $p['body'] . '<!-- /wp:html -->',
+			'post_content' => beog_import_content($p['body']),
 		]), true);
 		if (is_wp_error($id)) continue;
 		update_post_meta($id, '_beog_route', $route);
 		update_post_meta($id, '_beog_lang', sanitize_key($p['lang']));
 		update_post_meta($id, '_beog_description', sanitize_text_field($p['description'] ?? ''));
+		update_post_meta($id, '_beog_source_hash', md5(beog_import_content($p['body'])));
 		if ($type === 'beog_project' && !empty($p['project'])) {
 			update_post_meta($id, '_beog_project', sanitize_key($p['project']));
 			$f = (array) ($p['facts'] ?? []);
@@ -52,7 +53,9 @@ add_action('admin_menu', function () {
 		if (isset($_GET['imported'])) echo '<div class="notice notice-success"><p>' . (int) $_GET['imported'] . ' contenu(s) créé(s) en brouillon.</p></div>';
 		echo '<p>Crée les contenus initiaux FR/EN en brouillon pour validation. Un contenu déjà importé est conservé. Aucun paiement n’est activé.</p><form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
 		wp_nonce_field('beog_import');
-		echo '<input type="hidden" name="action" value="beog_import"><button class="button button-primary">Importer les contenus en brouillon</button></form></div>';
+		echo '<input type="hidden" name="action" value="beog_import"><button class="button button-primary">Importer les contenus en brouillon</button></form>';
+		beog_resync_screen();
+		echo '</div>';
 	});
 });
 
@@ -117,3 +120,66 @@ function beog_import_media(string $path, array $alt, array $caption): int {
 	update_post_meta($id, '_beog_source', $name);
 	return (int) $id;
 }
+
+/** Contenu enregistré pour un corps de page issu de pages.json. */
+function beog_import_content(string $body): string {
+	return '<!-- wp:html -->' . $body . '<!-- /wp:html -->';
+}
+
+/**
+ * Pages déjà en ligne dont le texte diffère de la version du thème (pages.json).
+ * « edited » signale une page modifiée dans WordPress depuis l'import : la mettre
+ * à jour remplacerait ces modifications (elles restent dans les révisions).
+ */
+function beog_resync_candidates(): array {
+	$pages = json_decode((string) file_get_contents(BEOG_DIR . '/pages.json'), true);
+	if (!is_array($pages)) return [];
+	$out = [];
+	foreach ($pages as $p) {
+		if (($p['type'] ?? '') === 'album' || empty($p['route'])) continue;
+		$ids = get_posts(['post_type' => beog_routed_types(), 'post_status' => 'any', 'posts_per_page' => 1, 'fields' => 'ids', 'meta_key' => '_beog_route', 'meta_value' => $p['route']]);
+		if (!$ids) continue;
+		$post = get_post($ids[0]);
+		$content = beog_import_content($p['body']);
+		$title = sanitize_text_field($p['title']);
+		if ($post->post_content === $content && $post->post_title === $title) continue;
+		$hash = (string) get_post_meta($post->ID, '_beog_source_hash', true);
+		$edited = $hash !== '' ? md5($post->post_content) !== $hash : count(wp_get_post_revisions($post->ID, ['fields' => 'ids'])) > 1;
+		$out[] = ['id' => $post->ID, 'route' => $p['route'], 'title' => $title, 'content' => $content, 'description' => sanitize_text_field($p['description'] ?? ''), 'edited' => $edited];
+	}
+	return $out;
+}
+
+/** Met à jour une page depuis pages.json ; l'ancienne version reste dans les révisions. */
+function beog_resync_post(array $c): bool {
+	$r = wp_update_post(wp_slash(['ID' => $c['id'], 'post_title' => $c['title'], 'post_content' => $c['content']]), true);
+	if (is_wp_error($r)) return false;
+	update_post_meta($c['id'], '_beog_description', $c['description']);
+	update_post_meta($c['id'], '_beog_source_hash', md5($c['content']));
+	return true;
+}
+
+function beog_resync_screen(): void {
+	$list = beog_resync_candidates();
+	echo '<h2 style="margin-top:2em">Mettre à jour les textes des pages existantes</h2>';
+	if (isset($_GET['resynced'])) echo '<div class="notice notice-success"><p>' . (int) $_GET['resynced'] . ' page(s) mise(s) à jour. Les versions précédentes restent disponibles dans les révisions.</p></div>';
+	if (!$list) { echo '<p>Toutes les pages correspondent à la version actuelle du thème.</p>'; return; }
+	echo '<p>Ces pages diffèrent de la version actuelle du thème. Les pages modifiées dans WordPress sont décochées : les mettre à jour remplacerait ces modifications, qui resteraient récupérables dans les révisions.</p>';
+	echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+	wp_nonce_field('beog_resync');
+	echo '<input type="hidden" name="action" value="beog_resync"><table class="widefat striped" style="max-width:900px"><thead><tr><td class="check-column"></td><th>Page</th><th>Adresse</th><th>État</th></tr></thead><tbody>';
+	foreach ($list as $c) {
+		echo '<tr><th class="check-column"><input type="checkbox" name="routes[]" value="' . esc_attr($c['route']) . '"' . checked(!$c['edited'], true, false) . ' aria-label="' . esc_attr($c['title']) . '"></th><td>' . esc_html($c['title']) . '</td><td><code>/' . esc_html($c['route']) . '/</code></td><td>' . ($c['edited'] ? '<strong style="color:#b32d2e">Modifiée dans WordPress</strong>' : 'Texte du thème plus récent') . '</td></tr>';
+	}
+	echo '</tbody></table><p><button class="button button-primary">Mettre à jour les pages cochées</button></p></form>';
+}
+
+add_action('admin_post_beog_resync', function () {
+	if (!current_user_can('manage_options')) wp_die('Accès refusé.', 403);
+	check_admin_referer('beog_resync');
+	$wanted = array_map('sanitize_text_field', (array) wp_unslash($_POST['routes'] ?? []));
+	$done = 0;
+	foreach (beog_resync_candidates() as $c) if (in_array($c['route'], $wanted, true) && beog_resync_post($c)) $done++;
+	wp_safe_redirect(add_query_arg(['page' => 'beog-import', 'resynced' => $done], admin_url('tools.php')));
+	exit;
+});

@@ -12,6 +12,27 @@ class Beog_CLI {
 		WP_CLI::success(sprintf('%d contenu(s) créé(s), %d déjà présent(s).', $r['created'], $r['skipped']));
 	}
 
+	/**
+	 * Met à jour les pages existantes dont le texte diffère du thème.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--include-edited]
+	 * : Met aussi à jour les pages modifiées dans WordPress (anciennes versions gardées en révisions).
+	 *
+	 * [--dry-run]
+	 * : Affiche la liste sans rien modifier.
+	 */
+	public function resync(array $args, array $assoc): void {
+		$done = 0;
+		foreach (beog_resync_candidates() as $c) {
+			$skip = $c['edited'] && empty($assoc['include-edited']);
+			WP_CLI::log(sprintf('%s /%s/ %s', $skip ? '[ignorée]' : (!empty($assoc['dry-run']) ? '[à mettre à jour]' : '[mise à jour]'), $c['route'], $c['edited'] ? '(modifiée dans WordPress)' : ''));
+			if (!$skip && empty($assoc['dry-run']) && beog_resync_post($c)) $done++;
+		}
+		WP_CLI::success($done . ' page(s) mise(s) à jour.');
+	}
+
 	/** Publie tous les brouillons importés (environnement de test uniquement). */
 	public function publish(): void {
 		if (wp_get_environment_type() === 'production') WP_CLI::error('Refusé en production : la direction valide et publie depuis l’administration.');

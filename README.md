@@ -15,7 +15,7 @@ Le site publié est statique, rapide et portable. Il ne constitue pas la récept
 - Les formulaires préparent uniquement du texte local : ils ne transmettent ni ne stockent les données. Aucun service de courrier n’est configuré.
 - La vidéo est chargée après un clic, avec le son d’origine et des commandes de volume. Elle ne démarre pas à l’ouverture de la page.
 
-## WordPress — socle du lot A (extension 2.0)
+## WordPress — socle du lot A (extension 2.2, production sur beog-zaadba.bf)
 Le dossier `wordpress` contient le thème `beog-zaadba` et l’extension `beog-contenus`, séparée du thème. `node build.mjs` régénère les copies du thème et le fichier d’import à partir du site statique.
 
 **Installation (PHP 8.1 ou plus récent, WordPress 6.6 ou plus récent)**
@@ -25,7 +25,8 @@ Le dossier `wordpress` contient le thème `beog-zaadba` et l’extension `beog-c
 4. Relire, puis publier depuis l’administration. Réglages > Lecture : page d’accueil statique = l’accueil français.
 5. Réglages > Général : renseigner « Courriel des demandes Beog-Zaadba ». Vérifier que le serveur envoie des courriels (extension SMTP si besoin).
 6. Pièces privées : définir `BEOG_PRIVATE_DIR` dans `wp-config.php` vers un dossier hors de la racine web. À défaut, `wp-content/beog-private/` est protégé par `.htaccess` (Apache) ; sous Nginx, ajouter `location ^~ /wp-content/beog-private/ { deny all; }`.
-7. Le thème garde `noindex` jusqu’à la validation de la version en ligne.
+7. Indexation : le thème n’impose plus `noindex`. WordPress l’ajoute lui-même tant que « Demander aux moteurs de recherche de ne pas indexer ce site » est coché (Réglages > Lecture) ; décocher la case ouvre le site aux moteurs et publie le plan du site `/wp-sitemap.xml` (sans les comptes utilisateurs). Chaque page reçoit une description et ses liens `hreflang` FR/EN. Le site statique `dist/` reste en `noindex` : il n’est pas la version de production.
+8. Mise à jour des textes : l’import ne remplace jamais un contenu existant. Après une mise à jour du thème et de l’extension, Outils > Import Beog-Zaadba > « Mettre à jour les textes des pages existantes » (ou `wp beog resync --dry-run`, puis `wp beog resync`) liste les pages dont le texte diffère de la nouvelle version. Celles modifiées dans WordPress sont signalées et décochées ; toute mise à jour garde l’ancienne version dans les révisions.
 
 **Ce que gère l’école**
 - *Fiches projet* : état public parmi les six états du cahier (En préparation, Ouvert au soutien, Financement atteint, En réalisation, Terminé, Suspendu), chacun avec son message ; budget daté et historisé ; ressources sécurisées (vide = non renseigné, jamais zéro) ; solde calculé ; jauge affichée seulement si l’objectif et sa règle sont validés. Les chiffres et l’état saisis sur une langue sont recopiés sur l’autre ; les textes (responsable, lieu, calendrier, bénéficiaires) restent propres à chaque langue. Les pastilles d’état de l’accueil et de la liste des projets suivent automatiquement.
@@ -45,7 +46,7 @@ Le dossier `wordpress` contient le thème `beog-zaadba` et l’extension `beog-c
 | Partenariats Beog-Zaadba | Traiter et exporter les demandes de contact et de partenariat ; créer des albums photos. |
 | Administrateur | Maintenance technique ; toutes les capacités. |
 
-**Commandes WP-CLI** : `wp beog import`, `wp beog publish` (refusée en production), `wp beog export-inquiries fichier.csv`.
+**Commandes WP-CLI** : `wp beog import`, `wp beog resync [--dry-run] [--include-edited]`, `wp beog publish` (refusée en production), `wp beog export-inquiries fichier.csv`.
 
 **Testé** sur WordPress 7.1.4, PHP 8.3 : import et publication, routes FR/EN et 404, aperçu des brouillons réservé aux éditeurs, droits de chaque rôle (écrans et téléchargements), saisie des chiffres limitée à la direction, recopie FR→EN et historique du budget, jauge, suivi des projets, traduction, archivage, formulaire en navigateur (FR/EN), refus pour jeton invalide, champ piège, limitation, champs invalides, alerte de courriel en panne, export CSV neutralisant une formule, refus d’un fichier `.php`.
 
