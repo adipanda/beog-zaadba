@@ -169,3 +169,27 @@ add_action('admin_post_beog_archive', function () {
 	wp_safe_redirect(wp_get_referer() ?: admin_url('edit.php?post_type=' . $post->post_type));
 	exit;
 });
+
+// Référencement : description et versions linguistiques des pages FR/EN.
+add_action('wp_head', function () {
+	if (!is_singular()) return;
+	$id = get_queried_object_id();
+	$desc = (string) get_post_meta($id, '_beog_description', true);
+	if ($desc === '' && preg_match_all('#<p[^>]*>(.*?)</p>#s', (string) get_post_field('post_content', $id), $m)) {
+		foreach ($m[1] as $para) { $text = trim(wp_strip_all_tags($para)); if (mb_strlen($text) >= 60) { $desc = wp_html_excerpt($text, 155, '…'); break; } }
+	}
+	if ($desc !== '') echo '<meta name="description" content="' . esc_attr($desc) . '">' . "\n";
+	$route = (string) get_post_meta($id, '_beog_route', true);
+	if (!preg_match('#^(fr|en)(/|$)#', $route)) return;
+	$sibling = beog_sibling_id($id);
+	if (!$sibling || get_post_status($sibling) !== 'publish') return;
+	$lang = substr($route, 0, 2);
+	$links = [$lang => get_permalink($id), ($lang === 'fr' ? 'en' : 'fr') => get_permalink($sibling)];
+	foreach ($links as $l => $href) echo '<link rel="alternate" hreflang="' . esc_attr($l) . '" href="' . esc_url($href) . '">' . "\n";
+	echo '<link rel="alternate" hreflang="x-default" href="' . esc_url($links['fr']) . '">' . "\n";
+}, 2);
+
+// Le plan du site n'expose pas les comptes utilisateurs.
+add_filter('wp_sitemaps_add_provider', fn($provider, $name) => $name === 'users' ? false : $provider, 10, 2);
+// Ni les types techniques sans page publique.
+add_filter('wp_sitemaps_post_types', function ($types) { unset($types['beog_report']); return $types; });
